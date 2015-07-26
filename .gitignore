@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 *.html
+main_files
+main_cache
