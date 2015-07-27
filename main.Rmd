@@ -2,8 +2,19 @@
 title: "R crawler"
 author: "chihchengliang"
 date: "2015年07月26日"
-output: html_document
+output:
+  ioslides_presentation:
+    smaller: yes
+    widescreen: yes
+    css: main.css
 ---
+
+```{r echo=FALSE}
+#   html_document:
+#     toc: true
+#     theme: cerulean
+```
+
 
 # 什麼是爬蟲
 - 利用程式有系統地造訪網頁，取得網頁內容。取出有用的資料以利後續應用。
@@ -43,8 +54,8 @@ capture.output(content)[1:5] # Capture first 20 lines of output
 ```
 
 
-##剖析資料
-針對不同資料格式要選不一樣的剖析套件
+## 剖析資料
+針對不同資料格式要選不一樣的剖析套件。以html檔案為例，使用CSS選擇器來剖析。
 
 ```{r}
 library(XML)
@@ -55,8 +66,7 @@ xmlValue(nodes[[1]])
 
 # 範例欣賞
 
-## 新北市消防隊API
-[http://hackersome.com/p/faryne/ntpcfd-stats](http://hackersome.com/p/faryne/ntpcfd-stats)
+## 新北市消防隊API [http://hackersome.com/p/faryne/ntpcfd-stats](http://hackersome.com/p/faryne/ntpcfd-stats)
 
 - API Endpoint：http://ha2.tw/ntpcfd/api/json
     - Request Type：GET
@@ -75,6 +85,8 @@ xmlValue(nodes[[1]])
 - 備註：若不帶入任何參數，則取出當天所有報案紀錄。
 - 資料來源：http://epaper.tpf.gov.tw/liveview/default.asp
 
+## 造訪網頁取得內容 + 剖析資料
+
 ```{r ntpcfd_api, message=FALSE}
 library(jsonlite)
 library(knitr)
@@ -84,9 +96,13 @@ data = jsonlite::fromJSON(url)
 kable(head(data))
 ```
 
+## 檢視資料
+
 ```{r}
 kable(summary(data), align = "l")
 ```
+
+## 預處理
 
 ```{r preprocessing}
 data$service_type = as.factor(data$service_type)
@@ -97,7 +113,9 @@ dataWithGeoPoint = data[ data$lng>0, ]
 kable(summary(dataWithGeoPoint), align = "l")
 ```
 
-```{r cache=TRUE,message=FALSE, visualization }
+## 簡單視覺化
+
+```{r cache=TRUE,message=FALSE,fig.width=10, visualization }
 library(ggplot2)
 library(ggmap)
 
