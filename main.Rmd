@@ -3,45 +3,50 @@ title: "R crawler"
 author: "chihchengliang"
 date: "2015年07月26日"
 output:
-  ioslides_presentation:
-    smaller: yes
-    widescreen: yes
-    css: main.css
+  html_document:
+    toc: true
+    theme: cerulean
 ---
 
 ```{r echo=FALSE}
 #   html_document:
 #     toc: true
 #     theme: cerulean
+
+#   ioslides_presentation:
+#     smaller: yes
+#     widescreen: yes
+#     css: main.css
 ```
 
 
-# 什麼是爬蟲
+## 什麼是爬蟲
+
 - 利用程式有系統地造訪網頁，取得網頁內容。取出有用的資料以利後續應用。
 
-翻譯：把別人家的資料當成你家的資料用。
+> - 翻譯：把別人家的資料當成你家的資料用。
 
 
-# 爬蟲流程
+## 爬蟲流程
 
-##觀察網頁
-一個網站爬不爬得下來的關鍵
-
-##造訪網頁取得內容
-
-##剖析資料
-
-##儲存資料
+- 觀察網頁
+- 造訪網頁取得內容
+- 剖析資料
+- 儲存資料
 
 
 # 實作方式
 
-##觀察網頁
+## 觀察網頁
+
 ![github.png](github.png)
-檢查網頁元素
+
+
+## 檢查網頁元素
+
 ![github_inspect.png](github_inspect.png)
 
-##造訪網頁取得內容
+## 造訪網頁取得內容
 
 使用[httr](https://cran.r-project.org/web/packages/httr/httr.pdf)套件
 
@@ -61,12 +66,19 @@ capture.output(content)[1:5] # Capture first 20 lines of output
 library(XML)
 library(selectr)
 nodes = querySelectorAll(content,".files .content a")
+nodes
+```
+
+## 取出字串
+
+```{r}
 xmlValue(nodes[[1]])
 ```
 
+
 # 範例欣賞
 
-## 新北市消防隊API [http://hackersome.com/p/faryne/ntpcfd-stats](http://hackersome.com/p/faryne/ntpcfd-stats)
+## 新北市消防局API [http://hackersome.com/p/faryne/ntpcfd-stats](http://hackersome.com/p/faryne/ntpcfd-stats)
 
 - API Endpoint：http://ha2.tw/ntpcfd/api/json
     - Request Type：GET
@@ -75,6 +87,9 @@ xmlValue(nodes[[1]])
     - service_time：[可選參數]出勤日期，格式為 YYYY-mm-dd
     - service_unit[]：[可選參數]出勤分隊，例如 樹林分隊 、 板橋分隊
     - service_type[]：[可選參數]出勤任務類型，目前只能輸入 救護、火災 、 災害
+
+## 新北市消防局
+
 - 回傳結果：
     - service_type：出勤任務類型
     - service_unit：出勤分隊
