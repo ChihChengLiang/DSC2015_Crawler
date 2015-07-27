@@ -1,0 +1,32 @@
+---
+title: "largeData"
+author: "chihchengliang"
+date: "2015年07月27日"
+output: html_document
+---
+
+```{r}
+library(jsonlite)
+date_seq = seq.Date(from = as.Date("2015-01-01"), to = as.Date("2015-07-26"),by = "days")
+# date_seq = seq.Date(from = as.Date("2015-01-01"), to = as.Date("2015-01-05"),by = "days")
+get_data =  function(date){
+   url = paste("http://ha2.tw/ntpcfd/api/json?service_time=", date, sep = "")
+   data = jsonlite::fromJSON(url)
+   write.table(data, file = "foo.csv", row.names = FALSE,col.names = FALSE,  append = TRUE, sep = ",")
+}
+header = c( "service_type","service_unit","service_addr","service_time","lat","lng")
+cat(header, file = "foo.csv", sep = ",")
+cat("\n", file = "foo.csv", append = TRUE)
+nothing = sapply(date_seq, get_data)
+```
+
+```{r}
+data$service_type= NULL
+data$service_addr= NULL
+data$service_time= as.POSIXct(data$service_time)
+dataWithGeoPoint = data[data$lat>0, ]
+
+```
+
+
+
