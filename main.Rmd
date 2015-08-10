@@ -4,21 +4,15 @@ author: "chihchengliang"
 date: "2015年07月26日"
 output:
   html_document:
-    toc: true
     theme: cerulean
+    toc: yes
+  slidy_presentation: default
+  ioslides_presentation:
+    css: main.css
+    smaller: yes
+    widescreen: yes
+
 ---
-
-```{r echo=FALSE}
-#   html_document:
-#     toc: true
-#     theme: cerulean
-
-#   ioslides_presentation:
-#     smaller: yes
-#     widescreen: yes
-#     css: main.css
-```
-
 
 ## 什麼是爬蟲
 
