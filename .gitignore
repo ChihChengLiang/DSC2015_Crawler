@@ -5,3 +5,4 @@
 main_files
 main_cache
 *.csv
+.ipynb_checkpoints/
