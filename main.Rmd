@@ -3,22 +3,21 @@ title: "R crawler"
 author: "chihchengliang"
 date: "2015年07月26日"
 output:
-  html_document:
-    theme: cerulean
-    toc: yes
-  slidy_presentation: default
   ioslides_presentation:
     css: main.css
     smaller: yes
     widescreen: yes
+  html_document:
+    theme: cerulean
+    toc: yes
+  slidy_presentation: default
+
 
 ---
 
 ## 什麼是爬蟲
 
 - 利用程式有系統地造訪網頁，取得網頁內容。取出有用的資料以利後續應用。
-
-> - 翻譯：把別人家的資料當成你家的資料用。
 
 
 ## 爬蟲流程
@@ -44,7 +43,7 @@ output:
 
 使用[httr](https://cran.r-project.org/web/packages/httr/httr.pdf)套件
 
-```{r}
+```{r, comment=""}
 library(httr)
 url = "https://github.com/dboyliao/DSC2015_RBasic"
 response = GET(url)
@@ -78,9 +77,14 @@ xmlValue(nodes[[1]])
     - Request Type：GET
     - Response Type：JSON
 - 所需參數：
-    - service_time：[可選參數]出勤日期，格式為 YYYY-mm-dd
-    - service_unit[]：[可選參數]出勤分隊，例如 樹林分隊 、 板橋分隊
-    - service_type[]：[可選參數]出勤任務類型，目前只能輸入 救護、火災 、 災害
+
+| 參數 | 意義 | 格式、範例 |
+|-|-|-|
+| service_time    | 出勤日期  | 格式為 YYYY-mm-dd |
+| service_unit[]  | 出勤分隊  | 例如 樹林分隊 、 板橋分隊 |
+| service_type[]  | 出勤任務類型  | 目前只能輸入 救護、火災 、 災害 |
+
+> - 更新：颱風之後就壞了，8/8以後會無資料
 
 ## 新北市消防局
 
