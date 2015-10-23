@@ -88,6 +88,7 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -175,6 +176,9 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="R-Crawler-R&#29228;&#34802;">R Crawler R&#29228;&#34802;<a class="anchor-link" href="#R-Crawler-R&#29228;&#34802;">&#182;</a></h1><blockquote><p>Chih-Cheng</p>
 </blockquote>
+<ul>
+<li>Github: <a href="https://github.com/ChihChengLiang/DSC2015_Crawler/">https://github.com/ChihChengLiang/DSC2015_Crawler/</a></li>
+</ul>
 
 </div>
 </div>
@@ -259,7 +263,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#29228;&#34802;&#27969;&#31243;-pictures-from-https://pixabay.com">&#29228;&#34802;&#27969;&#31243; <span style="font-size:14px">pictures from <a href="https://pixabay.com">https://pixabay.com</a></span><a class="anchor-link" href="#&#29228;&#34802;&#27969;&#31243;-pictures-from-https://pixabay.com">&#182;</a></h2>
+<h2 id="&#29228;&#34802;&#27969;&#31243;-pictures-from-https://pixabay.com">&#29228;&#34802;&#27969;&#31243; <span style="font-size:14px">pictures from https://pixabay.com</span><a class="anchor-link" href="#&#29228;&#34802;&#27969;&#31243;-pictures-from-https://pixabay.com">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -347,11 +351,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre>library<span class="p">(</span>httr<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span class="kn">library</span><span class="p">(</span>httr<span class="p">)</span>
 url <span class="o">=</span> <span class="s">&quot;https://github.com/dboyliao/DSC2015_RBasic&quot;</span>
-response <span class="o">=</span> GET<span class="p">(</span>url<span class="p">)</span>
+response <span class="o">=</span> GET<span class="p">(</span><span class="kp">url</span><span class="p">)</span>
 content <span class="o">=</span> content<span class="p">(</span>response<span class="p">)</span>
-print<span class="p">(</span>capture.output<span class="p">(</span>content<span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">])</span> <span class="c1"># Capture first 10 lines of output</span>
+<span class="kp">print</span><span class="p">(</span>capture.output<span class="p">(</span>content<span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">])</span> <span class="c1"># Capture first 10 lines of output</span>
 </pre></div>
 
 </div>
@@ -408,8 +412,8 @@ print<span class="p">(</span>capture.output<span class="p">(</span>content<span 
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre>library<span class="p">(</span>XML<span class="p">)</span>
-library<span class="p">(</span>selectr<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span class="kn">library</span><span class="p">(</span>XML<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>selectr<span class="p">)</span>
 nodes <span class="o">=</span> querySelectorAll<span class="p">(</span>content<span class="p">,</span><span class="s">&quot;.files .content a&quot;</span><span class="p">)</span>
 nodes
 </pre></div>
@@ -497,7 +501,7 @@ attr(,&quot;class&quot;)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span class="kr">for</span><span class="p">(</span>node <span class="kr">in</span> nodes<span class="p">){</span>
-    print<span class="p">(</span>xmlValue<span class="p">(</span>node<span class="p">))</span>
+    <span class="kp">print</span><span class="p">(</span>xmlValue<span class="p">(</span>node<span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -721,11 +725,11 @@ attr(,&quot;class&quot;)
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre>library<span class="p">(</span>jsonlite<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span class="kn">library</span><span class="p">(</span>jsonlite<span class="p">)</span>
 
 url <span class="o">=</span> <span class="s">&quot;http://ha2.tw/ntpcfd/api/json?service_time=2015-07-25&quot;</span>
-data <span class="o">=</span> jsonlite<span class="o">::</span>fromJSON<span class="p">(</span>url<span class="p">)</span>
-head<span class="p">(</span>data<span class="p">)</span>
+data <span class="o">=</span> jsonlite<span class="o">::</span>fromJSON<span class="p">(</span><span class="kp">url</span><span class="p">)</span>
+<span class="kp">head</span><span class="p">(</span>data<span class="p">)</span>
 </pre></div>
 
 </div>
@@ -773,7 +777,7 @@ head<span class="p">(</span>data<span class="p">)</span>
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre>summary<span class="p">(</span>data<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span class="kp">summary</span><span class="p">(</span>data<span class="p">)</span>
 </pre></div>
 
 </div>
@@ -818,13 +822,13 @@ head<span class="p">(</span>data<span class="p">)</span>
 <div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre>library<span class="p">(</span>knitr<span class="p">)</span>
-data<span class="o">$</span>service_type <span class="o">=</span> as.factor<span class="p">(</span>data<span class="o">$</span>service_type<span class="p">)</span>
-data<span class="o">$</span>service_unit <span class="o">=</span> as.factor<span class="p">(</span>data<span class="o">$</span>service_unit<span class="p">)</span>
-data<span class="o">$</span>lat <span class="o">=</span> as.numeric<span class="p">(</span>data<span class="o">$</span>lat<span class="p">)</span>
-data<span class="o">$</span>lng <span class="o">=</span> as.numeric<span class="p">(</span>data<span class="o">$</span>lng<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span class="kn">library</span><span class="p">(</span>knitr<span class="p">)</span>
+data<span class="o">$</span>service_type <span class="o">=</span> <span class="kp">as.factor</span><span class="p">(</span>data<span class="o">$</span>service_type<span class="p">)</span>
+data<span class="o">$</span>service_unit <span class="o">=</span> <span class="kp">as.factor</span><span class="p">(</span>data<span class="o">$</span>service_unit<span class="p">)</span>
+data<span class="o">$</span>lat <span class="o">=</span> <span class="kp">as.numeric</span><span class="p">(</span>data<span class="o">$</span>lat<span class="p">)</span>
+data<span class="o">$</span>lng <span class="o">=</span> <span class="kp">as.numeric</span><span class="p">(</span>data<span class="o">$</span>lng<span class="p">)</span>
 dataWithGeoPoint <span class="o">=</span> data<span class="p">[</span> data<span class="o">$</span>lng<span class="o">&gt;</span><span class="m">0</span><span class="p">,</span> <span class="p">]</span>
-head<span class="p">(</span>summary<span class="p">(</span>dataWithGeoPoint<span class="p">))</span> <span class="c1"># 這裡用head只是為了讓summary漂亮顯示</span>
+<span class="kp">head</span><span class="p">(</span><span class="kp">summary</span><span class="p">(</span>dataWithGeoPoint<span class="p">))</span> <span class="c1"># 這裡用head只是為了讓summary漂亮顯示</span>
 </pre></div>
 
 </div>
@@ -895,13 +899,13 @@ head<span class="p">(</span>summary<span class="p">(</span>dataWithGeoPoint<span
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre>library<span class="p">(</span>ggplot2<span class="p">)</span>
-library<span class="p">(</span>ggmap<span class="p">)</span>
+<div class=" highlight hl-r"><pre><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>ggmap<span class="p">)</span>
 
 box <span class="o">=</span> make_bbox<span class="p">(</span>dataWithGeoPoint<span class="o">$</span>lng<span class="p">,</span> dataWithGeoPoint<span class="o">$</span>lat<span class="p">)</span> 
-p <span class="o">=</span> ggmap<span class="p">(</span>get_map<span class="p">(</span>box<span class="p">),</span> darken <span class="o">=</span> c<span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="s">&quot;black&quot;</span><span class="p">))</span> 
+p <span class="o">=</span> ggmap<span class="p">(</span>get_map<span class="p">(</span>box<span class="p">),</span> darken <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="s">&quot;black&quot;</span><span class="p">))</span> 
 q <span class="o">=</span> p <span class="o">+</span> geom_point<span class="p">(</span>data<span class="o">=</span>dataWithGeoPoint<span class="p">,</span> aes<span class="p">(</span>lng<span class="p">,</span> lat<span class="p">,</span> colour<span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span> alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">10</span> <span class="p">),</span> size <span class="o">=</span><span class="m">3</span><span class="p">)</span><span class="o">+</span> theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&quot;none&quot;</span><span class="p">)</span>
-q
+<span class="kp">q</span>
 </pre></div>
 
 </div>
